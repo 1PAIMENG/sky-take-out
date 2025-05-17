@@ -7,7 +7,7 @@ sky:
     username: root
     password: 1234
   alioss:
-    access-key-id: LTAI5tFix2QkeUuXDYd9SA3J
-    access-key-secret: dx2bAI4cG770k19guhq27xlm7acUjJ
+    access-key-id: ***
+    access-key-secret: ***
     endpoint: oss-cn-beijing.aliyuncs.com
     bucket-name: sky-paibumeng
