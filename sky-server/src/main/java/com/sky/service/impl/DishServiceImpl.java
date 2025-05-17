@@ -37,7 +37,7 @@ public class DishServiceImpl implements DishService {
         //获取菜品id 这里加入了useGeneratedKeys="true" keyProperty="id"才能生效
         Long dishId = dish.getId();
         // 向口味表插入n条数据
-        List<DishFlavor> flavors = dishDTO.getFlavors ();
+        List<DishFlavor> flavors = dishDTO.getFlavors();
         if (flavors != null && flavors.size() > 0){
             flavors.forEach(dishFlavor -> dishFlavor.setDishId(dishId));
             //批量插入
