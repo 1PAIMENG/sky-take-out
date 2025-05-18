@@ -24,6 +24,8 @@ public class ShopController {
      * @param status
      * @return
      */
+
+    //TODO 增加店铺id，不然不知道会把哪一个店铺的状态修改了
     @PutMapping("/{status}")
     public Result setStatus(@PathVariable Integer status){
         log.info("修改店铺状态：{}",status==1?"营业中":"打烊中");
