@@ -11,3 +11,7 @@ sky:
     access-key-secret: dx2bAI4cG770k19guhq27xlm7acUjJ
     endpoint: oss-cn-beijing.aliyuncs.com
     bucket-name: sky-paibumeng
+  redis:
+    host: localhost
+    port: 6379
+    password: root
