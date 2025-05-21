@@ -90,4 +90,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         Long userId = BaseContext.getCurrentId();
         shoppingCartMapper.deleteByUserId(userId);
     }
+
+    //TODO 减少购物车商品数量
+    @Override
+    public void subShoppingCart(ShoppingCartDTO shoppingCartDTO) {
+
+    }
 }
