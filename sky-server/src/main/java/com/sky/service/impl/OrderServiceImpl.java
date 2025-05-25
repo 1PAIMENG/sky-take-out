@@ -28,6 +28,7 @@ import com.sky.utils.HttpClientUtil;
 import com.sky.vo.OrderStatisticsVO;
 import com.sky.vo.OrderSubmitVO;
 import com.sky.vo.OrderVO;
+import com.sky.websocket.WebSocketServer;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private ShoppingCartMapper shoppingCartMapper;
+
+    @Autowired
+    private WebSocketServer webSocketServer;
 
     @Transactional
     @Override
@@ -116,6 +120,12 @@ public class OrderServiceImpl implements OrderService {
                 .orderAmount(orders.getAmount())
                 .orderTime(orders.getOrderTime())
                 .build();
+
+        Map map= new HashMap();
+        map.put("type",1);//1 表示来单提醒 2 表示催单
+        map.put("orderId",orders.getId());
+        webSocketServer.sendToAllClient(JSON.toJSONString(map));
+
         return orderSubmitVO;
     }
 
