@@ -89,8 +89,10 @@ public class OrderServiceImpl implements OrderService {
         BeanUtils.copyProperties(ordersSubmitDTO,orders);
         orders.setUserId(userId);
         orders.setOrderTime(LocalDateTime.now());
-        orders.setPayStatus(Orders.UN_PAID);
-        orders.setStatus(Orders.PENDING_PAYMENT);
+        //TODO 因为 支付接口尚未开发，暂时写死 为已支付
+        orders.setPayStatus(Orders.PAID);
+        //写死为待接单
+        orders.setStatus(Orders.TO_BE_CONFIRMED);
         orders.setNumber(String.valueOf(System.currentTimeMillis()));
         orders.setPhone(addressBook.getPhone());
         orders.setConsignee(addressBook.getConsignee());//收货人
